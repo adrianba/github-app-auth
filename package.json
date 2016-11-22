@@ -16,7 +16,7 @@
   "bugs": {
     "url": "https://github.com/adrianba/github-app-auth/issues"
   },
-  "engines": {"node":"stable"},
+  "engines": {"node":"7.0.0"},
   "homepage": "https://github.com/adrianba/github-app-auth#readme",
   "dependencies": {
     "body-parser": "^1.15.2",
