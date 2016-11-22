@@ -1,0 +1,27 @@
+{
+  "name": "github-app-auth",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adrianba/github-app-auth.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adrianba/github-app-auth/issues"
+  },
+  "engines": {"node":"stable"},
+  "homepage": "https://github.com/adrianba/github-app-auth#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "express-cache-response-directive": "^1.0.0",
+    "github": "^6.1.0"
+  }
+}
