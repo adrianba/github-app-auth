@@ -2,7 +2,11 @@
 
 const assert = require("assert");
 const nock = require("nock");
-const githubAuth = require("../src/github-auth.js");
+const githubAuth = require("../src/github-auth.js")({
+  client_id: process.env.GITHUB_CLIENT_ID || 'client_id',
+  client_secret: process.env.GITHUB_CLIENT_SECRET || 'client_secret',
+  scopes: process.env.GITHUB_SCOPES.split(",") || ['notifications']
+});
 
 const GITHUB_API_ENDPOINT = /api\.github\.com/;
 

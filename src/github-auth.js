@@ -1,9 +1,5 @@
 "use strict";
 
-var client_id = process.env.GITHUB_CLIENT_ID;
-var client_secret = process.env.GITHUB_CLIENT_SECRET;
-var scopes = process.env.GITHUB_SCOPES.split(",");
-
 var GitHubApi = require("github");
 var github = new GitHubApi({
     //debug: true,
@@ -11,11 +7,21 @@ var github = new GitHubApi({
     timeout: 5000
 });
 
-function registerUser(userInfo) {
+var GitHubConfig = {};
+
+function auth(config) {
+  if(!config || !config.client_id || !config.client_secret || !config.scopes) {
+    throw "Invalid GitHubAuth configuration";
+  }
+  GitHubConfig = config;
+  return auth;
+}
+
+auth.registerUser = function(userInfo) {
     return new Promise((resolve,reject) => {
         github.authenticate({type:"basic", username:userInfo.user, password:userInfo.password});
         var headers = userInfo.code ? { "X-GitHub-OTP":userInfo.code } : { };
-        github.authorization.create({ scopes, client_id, client_secret, headers },(err,res) => {
+        github.authorization.create({ scopes:GitHubConfig.scopes, client_id:GitHubConfig.client_id, client_secret:GitHubConfig.client_secret, headers },(err,res) => {
             if(err) {
                 if(err.code===401) {
                     if(err.headers['x-github-otp'] && err.headers['x-github-otp'].startsWith("required;")) {
@@ -32,8 +38,6 @@ function registerUser(userInfo) {
             }
         });
     });
-}
-
-module.exports = {
-    registerUser
 };
+
+module.exports = auth;
