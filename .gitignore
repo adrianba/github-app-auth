@@ -1,2 +1,11 @@
+# Don't store the modules
 node_modules
-run.cmd
+
+# Environment settgins
+setenv.cmd
+
+# Istanbul output
+coverage
+
+# npm debug
+npm-debug.log

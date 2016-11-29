@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "istanbul cover node_modules/mocha/bin/_mocha"
   },
   "repository": {
     "type": "git",
@@ -16,12 +16,19 @@
   "bugs": {
     "url": "https://github.com/adrianba/github-app-auth/issues"
   },
-  "engines": {"node":"7.0.0"},
+  "engines": {
+    "node": "7.0.0"
+  },
   "homepage": "https://github.com/adrianba/github-app-auth#readme",
   "dependencies": {
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
     "express-cache-response-directive": "^1.0.0",
     "github": "^6.1.0"
+  },
+  "devDependencies": {
+    "istanbul": "^0.4.5",
+    "mocha": "^3.2.0",
+    "nock": "^9.0.2"
   }
 }
