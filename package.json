@@ -1,7 +1,7 @@
 {
   "name": "github-app-auth",
   "version": "1.0.0",
-  "description": "",
+  "description": "Service endpoint to authenticate GitHub user and provide authorization token for app.",
   "main": "index.js",
   "scripts": {
     "test": "istanbul cover node_modules/mocha/bin/_mocha"
@@ -10,14 +10,14 @@
     "type": "git",
     "url": "git+https://github.com/adrianba/github-app-auth.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": ["github","oauth","service"],
+  "author": "Ade Bateman (https://adebateman.org/)",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/adrianba/github-app-auth/issues"
   },
   "engines": {
-    "node": "7.0.0"
+    "node": "7.2.0"
   },
   "homepage": "https://github.com/adrianba/github-app-auth#readme",
   "dependencies": {
